@@ -7,7 +7,24 @@
   font-family: sans-serif;
   width: 100%;
   min-height: 100vh;
+}
+
+.App .backdrop{
+  filter: blur(4px);
+  position: absolute;
+  width: 100%;
+  height: 100%;
   background: rgb(88, 88, 88);
+  background-image:url("../public/img/pokemon-banner.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:cover;
+  z-index: -9999;
+}
+
+.App .foreground {
+  backdrop-filter: blur(10px);
+  z-index: 9999;
 }
 
 .App .mynav {

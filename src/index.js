@@ -13,28 +13,35 @@ import Webnav from "./components/navbar/webnav";
 import Home from "./pages/Home";
 import Pokedex from "./pages/Pokedex";
 import About from "./pages/About";
-import { Switch } from 'react-router-dom';
 
 
 export default function App() {
   return (
+
+
     <div className="App">
-      <Webnav />
+      <div class="backdrop"></div>
+      <div class="foreground">
+        <Webnav />
+        <Outlet />
+
+      </div>
+
+
       <BrowserRouter>
         <Routes>
-          <Route path="/" exact element={<Home/> }/>
-          <Route path="/pokedex" element={<Pokedex/> }/>
-          <Route path="/about" element={<About/> }/>
+          <Route path="/" exact element={<Home />} />
+          <Route path="/pokedex" element={<Pokedex />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </BrowserRouter>
-      <Outlet />
-    </div >
+    </div>
   );
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-      <App />
+    <App />
   </React.StrictMode>
 );
