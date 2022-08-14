@@ -1,13 +1,62 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+}
+.App {
+  font-family: sans-serif;
+  width: 100%;
+  min-height: 100vh;
+  background: rgb(88, 88, 88);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.App .mynav {
+  height: 6rem;
+  color: #fff !important;
+  background: rgb(64, 64, 64) !important;
+}
+
+.App .mynav a{
+  color: #fff !important;
+}
+
+.App .mynav a:hover{
+  color: rgb(244, 164, 45) !important;
+  text-decoration: underline;
+}
+
+.App .mynav a.navbar-brand:hover{
+  color: rgb(244, 164, 45) !important;
+  text-decoration: none;
+}
+
+.App .mynav h3{
+  font-size: 2em;
+  font-family: cursive;
+}
+
+.App .mynav .navbar-collapse{
+  justify-content: right;
+}
+
+
+.App .mynav .navbar-nav a{
+  font-size: 1.5em;
+  font-family: monospace;
+}
+
+.App .mynav .dropdown-menu a{
+  color: #000 !important;
+}
+
+.App .mynav .dropdown-menu a:hover{
+  color: rgb(244, 164, 45) !important;
+}
+
+.App .mynav .logo{
+  height: 6rem;
+}
+
+.App .mynav .logo img{
+  height: 100%;
 }
