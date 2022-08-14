@@ -53,6 +53,7 @@
   color: rgb(244, 164, 45) !important;
 }
 
-.App .mynav .logo{
-  height: 5rem;
+.App .mynav .logo svg{
+  height: 64px !important
 }
+

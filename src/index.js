@@ -4,6 +4,7 @@ import ReactDOM from "react-dom";
 // Importing the Bootstrap CSS
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./index.css";
+import "./res/svgs/svgStyle.css"
 
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
