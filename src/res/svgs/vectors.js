@@ -3,7 +3,7 @@ function LogoSvg() {
     return null
 }
 
-function Pokedexvg() {
+function PokedexSvg() {
     return <svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="Layer_1" width="135px" height="135px" viewBox="0 0 135 135">
     <g>
         <g>
@@ -90,6 +90,6 @@ function PokeballSvg() {
 
 export {
     LogoSvg,
-    Pokedexvg,
+    PokedexSvg,
     PokeballSvg
 } 
