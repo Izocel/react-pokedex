@@ -30,7 +30,7 @@ body {
   height: 100vh;
 }
 
-.App content {
+.App section.backdrop {
   display: flex;
   width: inherit;
   height: inherit;
@@ -40,11 +40,10 @@ body {
   background-size:cover;
 }
 
-.App content section {
+.App section section.content {
   width: 100%;
   background-color: rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(4px);
-
 }
 
 

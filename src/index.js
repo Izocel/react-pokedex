@@ -9,10 +9,10 @@ import "./res/svgs/svgStyle.css"
 
 import Webnav from "./components/navbar/webnav";
 
-
 import Home from "./pages/Home";
 import Pokedex from "./pages/Pokedex";
 import About from "./pages/About";
+import Services from './services/services';
 
 
 export default function App() {
@@ -22,8 +22,8 @@ export default function App() {
         <Webnav />
       </header>
       <main>
-        <content>
-          <section>
+        <section className='backdrop'>
+          <section className='content'>
             <BrowserRouter>
               <Routes>
                 <Route path="/" exact element={<Home />} />
@@ -33,7 +33,7 @@ export default function App() {
             </BrowserRouter>
             <Outlet />
           </section>
-        </content>
+        </section>
       </main>
 
       <footer>
