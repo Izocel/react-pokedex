@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from "react-dom/client";
+import pkg from 'semantic-ui-react/package.json'
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 
 // Importing the Bootstrap CSS
@@ -41,6 +42,12 @@ export default function App() {
     </div>
   );
 }
+
+// TODO: Switch to https://github.com/palmerhq/the-platform#stylesheet when it will be stable
+const styleLink = document.createElement("link");
+styleLink.rel = "stylesheet";
+styleLink.href = "https://cdn.jsdelivr.net/npm/semantic-ui/dist/semantic.min.css";
+document.head.appendChild(styleLink);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

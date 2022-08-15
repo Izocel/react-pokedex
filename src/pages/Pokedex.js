@@ -1,4 +1,5 @@
 import React from 'react';
+import LoaderSpinner from '../components/loader/loaderSpinner';
 import { PokedexService } from '../services/services';
 
 
@@ -21,7 +22,8 @@ export class Pokedex extends React.Component {
       return this.printEmpty('pokemon')
     
     return (
-      <div>
+      <div className='row'>
+        <div className='flex-inline'>
         <span className='text-capitalize'>
           <p>Name:</p>
           <p>{poke.name}</p>
@@ -34,7 +36,7 @@ export class Pokedex extends React.Component {
           <p>Weight:</p>
           <p>{poke.weight}</p>
         </span>
-
+        </div>
         <hr></hr>
       </div>
     )
@@ -45,7 +47,9 @@ export class Pokedex extends React.Component {
   }
 
   printLoading(expecting = 'element', id = '') {
-    return <div id={id} data-loading={expecting} className="loading">Loading...</div>
+    return <div id={id} data-loading={expecting} className="loading">
+      <LoaderSpinner/>
+    </div>
   }
    
   printList() {
