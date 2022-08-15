@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from "react-dom/client";
-import pkg from 'semantic-ui-react/package.json'
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 
 // Importing the Bootstrap CSS
