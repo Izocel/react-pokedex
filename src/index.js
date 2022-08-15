@@ -17,24 +17,28 @@ import About from "./pages/About";
 
 export default function App() {
   return (
-
-
     <div className="App">
-      <div class="backdrop"></div>
-      <div class="foreground">
+      <header>
         <Webnav />
-        <Outlet />
+      </header>
+      <main>
+        <content>
+          <section>
+            <BrowserRouter>
+              <Routes>
+                <Route path="/" exact element={<Home />} />
+                <Route path="/pokedex" element={<Pokedex />} />
+                <Route path="/about" element={<About />} />
+              </Routes>
+            </BrowserRouter>
+            <Outlet />
+          </section>
+        </content>
+      </main>
 
-      </div>
-
-
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" exact element={<Home />} />
-          <Route path="/pokedex" element={<Pokedex />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
-      </BrowserRouter>
+      <footer>
+        <Webnav />
+      </footer>
     </div>
   );
 }
