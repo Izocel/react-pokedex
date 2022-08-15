@@ -1,7 +1,6 @@
 import pokedex from "./pokedex";
+const PokedexService = pokedex;
 
-const Services = {
-    Pokedex: pokedex
+export {
+    PokedexService,
 }
-
-export default Services;

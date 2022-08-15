@@ -12,7 +12,6 @@ import Webnav from "./components/navbar/webnav";
 import Home from "./pages/Home";
 import Pokedex from "./pages/Pokedex";
 import About from "./pages/About";
-import Services from './services/services';
 
 
 export default function App() {
@@ -26,7 +25,7 @@ export default function App() {
           <section className='content'>
             <BrowserRouter>
               <Routes>
-                <Route path="/" exact element={<Home />} />
+                <Route path="/" exact element={<Pokedex />} />
                 <Route path="/pokedex" element={<Pokedex />} />
                 <Route path="/about" element={<About />} />
               </Routes>

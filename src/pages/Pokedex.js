@@ -1,5 +1,5 @@
 import React from 'react';
-import Services from '../services/services';
+import { PokedexService } from '../services/services';
 
 
 export class Pokedex extends React.Component {
@@ -10,7 +10,7 @@ export class Pokedex extends React.Component {
   }
 
   async componentDidMount() {
-    this.setState({data: await Services.Pokedex.getList()})
+    this.setState({data: await PokedexService.getList()})
     this.setState({loading: false})
   }
 
@@ -24,7 +24,9 @@ export class Pokedex extends React.Component {
     return (
       <div>
       {results.map((sample, index) => (
-        <div key={index}>{sample.name}</div>
+        <div key={index}>
+          <a href={sample.url} target="_blank">{sample.name}</a>
+        </div>
     ))}
     </div>
     )
