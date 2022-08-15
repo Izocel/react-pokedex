@@ -5,14 +5,36 @@ async function getList(offset = 0, limit = 20) {
 
     const interval = {offset: offset,limit: limit}
     const response = await Poke.getPokemonsList(interval)
-    const data = response
+    return response;
+}
 
-    console.log(data)
-    return data;
+async function getPokemon(name) {
+
+    if(!name || name === "")
+        return {};
+    
+    const response = await Poke.getPokemonByName(name)
+    return response;
+}
+
+async function getPokemons(offset = 0, limit = 20) {
+    let pokemons = [];
+    let list = await this.getList(offset, limit);
+    list = await list.results;
+
+    for (let i = 0; i < list.length; i++) {
+        const sample = list[i];
+        pokemons.push(await this.getPokemon(sample.name));
+    }
+    
+    console.log(pokemons);
+    return pokemons;
 }
 
 const pokedex = {
-    getList
+    getList,
+    getPokemon,
+    getPokemons
 }
 
 export default pokedex;

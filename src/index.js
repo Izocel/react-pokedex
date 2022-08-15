@@ -3,9 +3,9 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 
 // Importing the Bootstrap CSS
-import 'bootstrap/dist/css/bootstrap.min.css';
 import "./index.css";
 import "./res/svgs/svgStyle.css"
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Webnav from "./components/navbar/webnav";
 

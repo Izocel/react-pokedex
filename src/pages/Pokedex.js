@@ -6,40 +6,67 @@ export class Pokedex extends React.Component {
 
   state = {
     loading: true,
-    data: null
+    pokemons: null
   }
 
   async componentDidMount() {
-    this.setState({data: await PokedexService.getList()})
-    this.setState({loading: false})
+    const pokemons = await PokedexService.getPokemons();
+
+    this.setState({ pokemons: pokemons })
+    this.setState({ loading: false })
   }
 
-  printLoading() {
-    return <div>Loading...</div>
-  }
-
-  printList() {
-    const results = this.state.data.results
+  printPokemon(poke) {
+    if (!poke)
+      return this.printEmpty('pokemon')
     
     return (
       <div>
-      {results.map((sample, index) => (
-        <div key={index}>
-          <a href={sample.url} target="_blank">{sample.name}</a>
+        <span className='text-capitalize'>
+          <p>Name:</p>
+          <p>{poke.name}</p>
+        </span>
+        <span className='text-capitalize'>
+          <p>Height:</p>
+          <p>{poke.height}</p>
+        </span>
+        <span className='text-capitalize'>
+          <p>Weight:</p>
+          <p>{poke.weight}</p>
+        </span>
+
+        <hr></hr>
+      </div>
+    )
+  }
+
+  printEmpty(expecting = 'element', id = '') {
+    return <div hidden id={id} data-missing={expecting} className='empty'></div>
+  }
+
+  printLoading(expecting = 'element', id = '') {
+    return <div id={id} data-loading={expecting} className="loading">Loading...</div>
+  }
+   
+  printList() {
+    const list = this.state.pokemons
+    return (
+      list.map((poke, index) => (
+        <div data-id={index} key={index}>
+          {this.printPokemon(poke)}
         </div>
-    ))}
-    </div>
+      ))
     )
   }
 
   render() {
     return <div className='dictionnary'>
       {
-        this.state.loading || !this.state.data.results
-        ? this.printLoading()
-        : this.printList()
+        this.state.loading
+          ? this.printLoading('dictionary')
+          : this.printList()
       }
-      </div>
+    </div>
   };
 
 }
