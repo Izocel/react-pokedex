@@ -1,4 +1,5 @@
 import React from 'react';
+import Gridcards from '../components/cards/gridcards';
 import LoaderSpinner from '../components/loader/loaderSpinner';
 import { PokedexService } from '../services/services';
 
@@ -22,22 +23,9 @@ export class Pokedex extends React.Component {
       return this.printEmpty('pokemon')
     
     return (
-      <div className='row'>
-        <div className='flex-inline'>
-        <span className='text-capitalize'>
-          <p>Name:</p>
-          <p>{poke.name}</p>
-        </span>
-        <span className='text-capitalize'>
-          <p>Height:</p>
-          <p>{poke.height}</p>
-        </span>
-        <span className='text-capitalize'>
-          <p>Weight:</p>
-          <p>{poke.weight}</p>
-        </span>
-        </div>
-        <hr></hr>
+      <div>
+        <Gridcards />
+        <br/>
       </div>
     )
   }
