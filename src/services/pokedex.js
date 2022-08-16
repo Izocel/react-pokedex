@@ -26,8 +26,7 @@ async function getPokemons(offset = 0, limit = 20) {
         const sample = list[i];
         pokemons.push(await this.getPokemon(sample.name));
     }
-    
-    console.log(pokemons);
+
     return pokemons;
 }
 

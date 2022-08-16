@@ -1,5 +1,5 @@
 import React from 'react';
-import { Segment, Loader } from 'semantic-ui-react';
+import { Loader } from 'semantic-ui-react';
 
 class LoaderSpinner extends React.Component {
   constructor(props) {

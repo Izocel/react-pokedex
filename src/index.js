@@ -2,14 +2,16 @@ import React from 'react';
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 
-// Importing the Bootstrap CSS
+//CSS
 import "./index.css";
 import "./res/svgs/svgStyle.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
+// COMPONENTS
 import Webnav from "./components/navbar/webnav";
 
-import Home from "./pages/Home";
+// PAGES
 import Pokedex from "./pages/Pokedex";
 import About from "./pages/About";
 
@@ -42,11 +44,28 @@ export default function App() {
   );
 }
 
-// TODO: Switch to https://github.com/palmerhq/the-platform#stylesheet when it will be stable
-const styleLink = document.createElement("link");
-styleLink.rel = "stylesheet";
-styleLink.href = "https://cdn.jsdelivr.net/npm/semantic-ui/dist/semantic.min.css";
-document.head.appendChild(styleLink);
+const CDN_CSS = [
+  "https://cdn.jsdelivr.net/npm/semantic-ui/dist/semantic.min.css",
+];
+
+CDN_CSS.forEach(href => {
+  const styleLink = document.createElement("link");
+  styleLink.rel = "stylesheet";
+  styleLink.href = href;
+  document.head.appendChild(styleLink);
+});
+
+
+const CDN_JS = [
+  
+];
+
+CDN_JS.forEach(href => {
+  const scriptlink = document.createElement("link");
+  scriptlink.rel = "javascript";
+  scriptlink.src = href;
+  document.head.appendChild(scriptlink);
+});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
