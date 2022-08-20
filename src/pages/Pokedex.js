@@ -1,65 +1,91 @@
-import React from 'react';
+import { BaseComponent } from '../components/BaseComponent';
 import Gridcards from '../components/cards/gridcards';
-import LoaderSpinner from '../components/loader/loaderSpinner';
+import { BaseContainer } from '../containers/BaseContainer';
 import { PokedexService } from '../services/services';
 
 
-export class Pokedex extends React.Component {
+class Pokedex extends BaseContainer {
 
-  state = {
-    loading: true,
-    pokemons: null
-  }
+  state = this.extendInitialState({
+    pokemon: null
+  });
 
   async componentDidMount() {
     const pokemons = await PokedexService.getPokemons();
 
     this.setState({ pokemons: pokemons })
-    this.setState({ loading: false })
+    this.isReady()
   }
 
-  printPokemon(poke) {
+  async componentDidUpdate() {
+    console.log(this.state)
+  }
+
+  renderPokemon(poke) {
     if (!poke)
-      return this.printEmpty('pokemon')
-    
+      return this.renderEmpty('pokemon')
+
     return (
       <div>
         <Gridcards />
-        <br/>
+        <br />
       </div>
     )
   }
 
-  printEmpty(expecting = 'element', id = '') {
-    return <div hidden id={id} data-missing={expecting} className='empty'></div>
-  }
-
-  printLoading(expecting = 'element', id = '') {
-    return <div id={id} data-loading={expecting} className="loading">
-      <LoaderSpinner/>
-    </div>
-  }
-   
-  printList() {
+  renderList() {
     const list = this.state.pokemons
     return (
       list.map((poke, index) => (
         <div data-id={index} key={index}>
-          {this.printPokemon(poke)}
+          {this.renderPokemon(poke)}
         </div>
       ))
     )
   }
 
-  render() {
+  doRender() {
     return <div className='dictionnary'>
-      {
-        this.state.loading
-          ? this.printLoading('dictionary')
-          : this.printList()
-      }
+      {this.renderList()}
     </div>
   };
 
 }
-export default Pokedex;
+
+class Pokedex_Ns extends BaseComponent {
+
+  baseProps = {
+    color: 'red'
+  }
+
+  allowedAttributes = [
+    'color'
+  ]
+
+  constructor(props) {
+    super(props)
+    this.extendProps(this.baseProps);
+  }
+
+  doCLick(e, t) {
+    const newColor = t.getXProps().color === 'blue' ? 'red' : 'blue';
+    t.setXProps('color', newColor);
+  }
+
+
+  doRender() {
+    const xprops = this.getXProps();
+    return <div className='dictionnary' onClick={(e, t= this) => this.doCLick(e,t)}>
+      {this.renderAttributes()}
+      <h1 style={{color: xprops.color}}>
+        Pokedex as component color: {xprops.color}</h1>
+    </div>
+  }
+}
+
+function PokedexFunc() {
+  return (<h1>Hello {this.constructor.name}</h1>);
+}
+
+
+export { Pokedex, Pokedex_Ns, PokedexFunc };

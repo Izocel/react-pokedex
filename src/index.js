@@ -12,7 +12,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Webnav from "./components/navbar/webnav";
 
 // PAGES
-import Pokedex from "./pages/Pokedex";
+import {Pokedex, Pokedex_Ns} from "./pages/Pokedex";
 import About from "./pages/About";
 
 
@@ -27,7 +27,7 @@ export default function App() {
           <section className='content'>
             <BrowserRouter>
               <Routes>
-                <Route path="/" exact element={<Pokedex />} />
+                <Route path="/" exact element={<Pokedex_Ns className="" name="ryu" xprops={{color: 'red'}} />} />
                 <Route path="/pokedex" element={<Pokedex />} />
                 <Route path="/about" element={<About />} />
               </Routes>
