@@ -52,7 +52,7 @@ class Pokedex extends BaseContainer {
 
 }
 
-class Pokedex_Ns extends BaseComponent {
+class PokedexNs extends BaseComponent {
 
   baseProps = {
     color: 'red'
@@ -76,7 +76,7 @@ class Pokedex_Ns extends BaseComponent {
   doRender() {
     const xprops = this.getXProps();
     return <div className='dictionnary' onClick={(e, t= this) => this.doCLick(e,t)}>
-      {this.renderAttributes()}
+      {this.initAttributes()}
       <h1 style={{color: xprops.color}}>
         Pokedex as component color: {xprops.color}</h1>
     </div>
@@ -88,4 +88,4 @@ function PokedexFunc() {
 }
 
 
-export { Pokedex, Pokedex_Ns, PokedexFunc };
+export { Pokedex, PokedexNs, PokedexFunc };

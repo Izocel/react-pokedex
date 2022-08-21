@@ -17,10 +17,8 @@ export class BaseComponent extends Component {
         this.initAttributes();
     }
 
-    renderAttributes() {
-        return(
-            
-        )
+    initAttributes() {
+
     }
 
     getXProps(key = null) {
