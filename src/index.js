@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
+import { Provider } from 'react-redux'
+import store from './redux/store';
 
 //CSS
 import "./index.css";
@@ -12,22 +14,23 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Webnav from "./components/navbar/webnav";
 
 // PAGES
-import {Pokedex, PokedexNs} from "./pages/Pokedex";
+import { Pokedex, PokedexNs } from "./pages/Pokedex";
 import About from "./pages/About";
 
 
-export default function App() {
+export default function App(props) {
   return (
     <div className="App">
       <header>
         <Webnav />
       </header>
+      
       <main>
         <section className='backdrop'>
           <section className='content'>
             <BrowserRouter>
               <Routes>
-                <Route path="/" exact element={<PokedexNs className="" name="ryu" xprops={{color: 'red'}} />} />
+                <Route path="/" exact element={<PokedexNs className="" name="ryu" xprops={{ color: 'red' }} />} />
                 <Route path="/pokedex" element={<Pokedex />} />
                 <Route path="/about" element={<About />} />
               </Routes>
@@ -57,7 +60,7 @@ CDN_CSS.forEach(href => {
 
 
 const CDN_JS = [
-  
+
 ];
 
 CDN_JS.forEach(href => {
@@ -70,6 +73,8 @@ CDN_JS.forEach(href => {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>
 );
